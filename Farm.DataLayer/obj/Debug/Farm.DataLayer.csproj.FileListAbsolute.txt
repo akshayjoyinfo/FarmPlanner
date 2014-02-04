@@ -1,0 +1,12 @@
+C:\Users\082043\Documents\Visual Studio 2010\Projects\FarmPlanner\Farm.DataLayer\bin\Debug\Farm.DataLayer.dll.config
+C:\Users\082043\Documents\Visual Studio 2010\Projects\FarmPlanner\Farm.DataLayer\bin\Debug\Farm.DataLayer.dll
+C:\Users\082043\Documents\Visual Studio 2010\Projects\FarmPlanner\Farm.DataLayer\bin\Debug\Farm.DataLayer.pdb
+C:\Users\082043\Documents\Visual Studio 2010\Projects\FarmPlanner\Farm.DataLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\082043\Documents\Visual Studio 2010\Projects\FarmPlanner\Farm.DataLayer\obj\Debug\Farm.DataLayer.dll
+C:\Users\082043\Documents\Visual Studio 2010\Projects\FarmPlanner\Farm.DataLayer\obj\Debug\Farm.DataLayer.pdb
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\obj\Debug\Farm.DataLayer.dll
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\bin\Debug\Farm.DataLayer.dll.config
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\bin\Debug\Farm.DataLayer.dll
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\bin\Debug\Farm.DataLayer.pdb
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\obj\Debug\Farm.DataLayer.pdb

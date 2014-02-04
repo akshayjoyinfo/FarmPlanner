@@ -1,0 +1,9 @@
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\bin\Release\Farm.BusinessLayer.dll
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\bin\Release\Farm.BusinessLayer.pdb
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\bin\Release\Farm.CommonClass.dll
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\bin\Release\Farm.DataLayer.dll
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\bin\Release\Farm.CommonClass.pdb
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\bin\Release\Farm.DataLayer.pdb
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\obj\Release\Farm.BusinessLayer.dll
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.BusinessLayer\obj\Release\Farm.BusinessLayer.pdb
