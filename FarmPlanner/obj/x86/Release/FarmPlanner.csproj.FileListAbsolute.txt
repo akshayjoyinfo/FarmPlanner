@@ -7,12 +7,11 @@ C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\Farm
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\bin\Release\Farm.BusinessLayer.pdb
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\bin\Release\Farm.CommonClass.pdb
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\bin\Release\Farm.DataLayer.pdb
-C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\FarmPlanner.FarmDBSettings.resources
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\FarmPlanner.FarmSectionDetails.resources
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\FarmPlanner.MainForm.resources
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\FarmPlanner.Properties.Resources.resources
-C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\GenerateResource.read.1.tlog
-C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\GenerateResource.write.1.tlog
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\FarmPlanner.exe
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\FarmPlanner.pdb
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\FarmPlanner.csprojResolveAssemblyReference.cache
+C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\FarmPlanner\obj\x86\Release\FarmPlanner.csproj.GenerateResource.Cache

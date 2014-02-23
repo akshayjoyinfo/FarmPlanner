@@ -13,21 +13,23 @@ namespace FarmPlanner
     public partial class FarmSectionDetails : Form
     {
         string selectedFarmSection = string.Empty;
+        string selectedPlanYear = string.Empty;
         List<FarmView> listFarmViewSelected = new List<FarmView>();
         List<Double> listProfits = new List<double>();
 
-        public FarmSectionDetails(string farmSection)
+        public FarmSectionDetails(string farmSection, string planYear)
         {
             this.selectedFarmSection = farmSection;
+            this.selectedPlanYear = planYear;
             InitializeComponent();
-            this.Text = this.Text +" "+ farmSection;
+            this.Text = this.Text +"-"+ farmSection + "-" + planYear;
         }
 
-        protected void LoadDetailsFarmSection(string farmSection)
+        protected void LoadDetailsFarmSection(string farmSection, string palnYear)
         {
             try
             {
-                listFarmViewSelected = FarmDAO.GetFarmDetailsSection(farmSection);
+                listFarmViewSelected = FarmDAO.GetFarmDetailsSection(farmSection,int.Parse(selectedPlanYear));
                 int pos = 0;
                 double totalProfit = 0.0;
                 foreach (FarmView obj in listFarmViewSelected)
@@ -91,7 +93,7 @@ namespace FarmPlanner
 
         private void FarmSectionDetails_Load(object sender, EventArgs e)
         {
-            LoadDetailsFarmSection(selectedFarmSection);
+            LoadDetailsFarmSection(selectedFarmSection,selectedPlanYear);
         }
 
         private void dgvFarmViewSection_RowLeave(object sender, DataGridViewCellEventArgs e)

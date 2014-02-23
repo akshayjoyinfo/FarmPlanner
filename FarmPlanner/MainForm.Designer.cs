@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnShowDetails = new System.Windows.Forms.Button();
             this.listCrops = new System.Windows.Forms.CheckedListBox();
@@ -75,6 +75,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtSecction = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.comboYear = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFarmView)).BeginInit();
@@ -86,6 +88,8 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.comboYear);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnShowDetails);
             this.groupBox1.Controls.Add(this.listCrops);
             this.groupBox1.Controls.Add(this.comboMonth);
@@ -100,6 +104,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Farm Area";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnShowDetails
             // 
@@ -140,7 +145,7 @@
             "October",
             "November",
             "December"});
-            this.comboMonth.Location = new System.Drawing.Point(162, 71);
+            this.comboMonth.Location = new System.Drawing.Point(162, 111);
             this.comboMonth.Name = "comboMonth";
             this.comboMonth.Size = new System.Drawing.Size(174, 23);
             this.comboMonth.TabIndex = 4;
@@ -149,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 71);
+            this.label3.Location = new System.Drawing.Point(17, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 15);
             this.label3.TabIndex = 3;
@@ -282,10 +287,10 @@
             this.dgvFarmView.Location = new System.Drawing.Point(20, 29);
             this.dgvFarmView.MultiSelect = false;
             this.dgvFarmView.Name = "dgvFarmView";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvFarmView.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvFarmView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFarmView.Size = new System.Drawing.Size(889, 397);
             this.dgvFarmView.TabIndex = 0;
             this.dgvFarmView.SelectionChanged += new System.EventHandler(this.dgvFarmView_SelectionChanged);
@@ -551,6 +556,43 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Section Name";
             // 
+            // comboYear
+            // 
+            this.comboYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboYear.FormattingEnabled = true;
+            this.comboYear.Items.AddRange(new object[] {
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.comboYear.Location = new System.Drawing.Point(162, 67);
+            this.comboYear.Name = "comboYear";
+            this.comboYear.Size = new System.Drawing.Size(174, 23);
+            this.comboYear.TabIndex = 10;
+            this.comboYear.SelectedIndexChanged += new System.EventHandler(this.comboYear_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 15);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Select Year";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -630,6 +672,8 @@
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnDeleteSection;
+        private System.Windows.Forms.ComboBox comboYear;
+        private System.Windows.Forms.Label label7;
     }
 }
 

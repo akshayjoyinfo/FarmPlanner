@@ -106,6 +106,40 @@ namespace Farm.BusinessLayer
             return status;
         }
 
+
+        public static bool CheckFarmViewExist(FarmView farmViewObj)
+        {
+            bool status = false;
+            string checkCorpExist = "select COUNT(*) from tbl_FarmView where SectionName='" + farmViewObj.Section + "' and (('" + farmViewObj.StartDate.ToShortDateString() + "' between StartDate and EndDate) or ('" + farmViewObj.EndDate.ToShortDateString() + "' between StartDate and EndDate))";
+            SqlCommand command = null;
+            SqlDataReader myReader;
+
+            try
+            {
+                command = new SqlCommand(checkCorpExist, DbConnection.GetConnection());
+                myReader = command.ExecuteReader();
+                int count = 0;
+                while (myReader.Read())
+                {
+                    count = int.Parse(myReader[0].ToString());
+
+                }
+                if (count == 0)
+                    status = true;
+                else
+                    status = false;
+
+
+            }
+            catch (Exception exp)
+            {
+                status = false;
+                throw exp;
+            }
+            finally { DbConnection.CloseConnection(command.Connection); }
+            return status;
+        }
+
         public static bool DeleteSection(Section sectionObj)
         {
             bool status = false;
@@ -192,7 +226,7 @@ namespace Farm.BusinessLayer
 
         }
 
-        public static List<FarmView> GetFarmDetailsSection(string farmSection)
+        public static List<FarmView> GetFarmDetailsSection(string farmSection, int planYear)
         {
 
             List<FarmView> listFarmViewSection = new List<FarmView>();
@@ -201,7 +235,7 @@ namespace Farm.BusinessLayer
             SqlDataReader myReader;
             try
             {
-                sqlString = "select SectionName, CorpsName, StartDate, EndDate, quantity, expectedOpt, rate, expense, totalProfit  from tbl_FarmView where SectionName='" + farmSection + "'";
+                sqlString = "select SectionName, CorpsName, StartDate, EndDate, quantity, expectedOpt, rate, expense, totalProfit  from tbl_FarmView where SectionName='" + farmSection + "' and (DATEPART(YEAR,StartDate) = "+ planYear +" or DATEPART(YEAR,EndDate)= "+planYear +")";
                 command = new SqlCommand(sqlString, DbConnection.GetConnection());
                 myReader = command.ExecuteReader();
 
@@ -274,10 +308,10 @@ namespace Farm.BusinessLayer
 
 
 
-        public static List<FarmView> GetAllFarmSections()
+        public static List<FarmView> GetAllFarmSections(int startYear)
         {
             List<FarmView> listFarmViews = new List<FarmView>();
-            string sqlString = "select SectionName, CorpsName, StartDate, EndDate from tbl_FarmView";
+            string sqlString = "select SectionName, CorpsName, StartDate, EndDate from tbl_FarmView where DATEPART(YEAR,StartDate) = " + startYear + " or DATEPART(YEAR,EndDate)= "+ startYear;
             SqlCommand command = null;
             SqlDataReader myReader;
 

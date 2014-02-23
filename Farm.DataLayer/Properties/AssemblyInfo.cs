@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Farm.DataLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Keane India Ltd.,")]
+[assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("Farm.DataLayer")]
-[assembly: AssemblyCopyright("Copyright © Keane India Ltd., 2014")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,6 +1,5 @@
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\bin\Release\Farm.DataLayer.dll.config
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\bin\Release\Farm.DataLayer.dll
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\bin\Release\Farm.DataLayer.pdb
-C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\obj\Release\ResolveAssemblyReference.cache
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\obj\Release\Farm.DataLayer.dll
 C:\Users\cecil varghese\Documents\Visual Studio 2010\Projects\Goldman Sachs\FarmPlanner\Farm.DataLayer\obj\Release\Farm.DataLayer.pdb

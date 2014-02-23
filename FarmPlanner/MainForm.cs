@@ -53,18 +53,26 @@ namespace FarmPlanner
 
                             Corp corpDetails = listCorpItems.Find(c => c.Name == ItemArray[0]);
                             Color cellColor = Color.FromName(corpDetails.Color);
-                            int month = DateTime.Parse("1." + selectedMonth + " 2014").Month;
-                            DateTime sDate = DateTime.Parse("1/" + selectedMonth + "/2014");
+                            int month = DateTime.Parse("1." + selectedMonth + " "+ comboYear.SelectedItem.ToString()).Month;
+                            DateTime sDate = DateTime.Parse("1/" + selectedMonth + "/" + comboYear.SelectedItem.ToString());
                             DateTime eDate = sDate.AddMonths(validperiod - 1).AddDays(27);
+                            int validPeriodMonth = 0;
                             if (listCrops.GetItemCheckState(listCrops.SelectedIndex) == System.Windows.Forms.CheckState.Checked)
                             {
-                                if (month + validperiod <= 13)
+                                FarmView farmViewObj = new FarmView(farmSection, corpDetails.Name, sDate, eDate);
+                                
+                                if (FarmDAO.CheckFarmViewExist(farmViewObj)) // if (month + validperiod <= 13)
                                 {
-                                       
+                                    validPeriodMonth = month + validperiod;
 
-                                    if (currentRow.Cells[month].Value == null && currentRow.Cells[month + validperiod - 1].Value == null)
+                                    if (validPeriodMonth > 13)
                                     {
-                                        for (int j = month; j < month + validperiod; ++j)
+                                        validPeriodMonth = 13;
+                                    }
+
+                                    if (currentRow.Cells[month].Value == null && currentRow.Cells[validPeriodMonth - 1].Value == null)
+                                    {
+                                        for (int j = month; j < validPeriodMonth; ++j)
                                             {
                                                 currentRow.Cells[j].Style.BackColor = cellColor;
                                                 currentRow.Cells[j].Style.ForeColor = cellColor;
@@ -73,7 +81,7 @@ namespace FarmPlanner
                                                 currentRow.Cells[j].Value = corpDetails.Name;
                                             }
 
-                                            FarmView farmViewObj = new FarmView(farmSection, corpDetails.Name, sDate, eDate);
+                                            
                                             listFarmViewSection.Add(farmViewObj);
                                             listModifiedFarmSection.Add(farmViewObj);
                                    
@@ -84,6 +92,7 @@ namespace FarmPlanner
                                         listCrops.SetItemCheckState(listCrops.SelectedIndex, CheckState.Unchecked);
                                     }
                                 }
+                            
                                 else
                                 {
                                     ShowMessage("Exceeds the period for this Year !!", "Farm Planner - Info", MessageBoxIcon.Warning);
@@ -94,9 +103,9 @@ namespace FarmPlanner
                             }
                             else
                             {
-                                if (month + validperiod <= 13)
+                                if (validPeriodMonth <= 13)
                                 {
-                                    for (int j = month; j < month + validperiod; ++j)
+                                    for (int j = month; j < validPeriodMonth; ++j)
                                     {
                                         currentRow.Cells[j].Style.BackColor = Color.White;
                                         currentRow.Cells[j].Style.ForeColor = Color.White;
@@ -154,8 +163,9 @@ namespace FarmPlanner
                 LoadFarmCrops();
                 LoadColors();
                 LoadGridFarmView();
-                LoadFarmViewResult();
                 LoadCurrentItems();
+                LoadFarmViewResult();
+                
 
 
             }
@@ -192,6 +202,7 @@ namespace FarmPlanner
             {
 
                 comboMonth.SelectedItem = "January";
+                comboYear.SelectedItem = DateTime.Now.Year.ToString();
                 comboFarmSection.SelectedItem = dgvFarmView.Rows[0].Cells[0].Value;
 
             }
@@ -205,10 +216,8 @@ namespace FarmPlanner
         {
             try
             {
-
-
                 listFarmViewSection.Clear();
-                listFarmViewSection = FarmDAO.GetAllFarmSections();
+                listFarmViewSection = FarmDAO.GetAllFarmSections(int.Parse(comboYear.SelectedItem.ToString()));
 
                 foreach (FarmView obj in listFarmViewSection)
                 {
@@ -220,17 +229,53 @@ namespace FarmPlanner
                         {
 
                             int startmonth = obj.StartDate.Month;
+                            int startYear = obj.StartDate.Year;
                             int endMonth = obj.EndDate.Month;
+                            int endYear = obj.EndDate.Year;
 
-                            for (int posMonth = startmonth; posMonth <= endMonth; ++posMonth)
+                            if (startYear == endYear)
                             {
-                                Corp corpDetails = listCorpItems.Find(c => c.Name == obj.Corp);
-                                Color cellColor = Color.FromName(corpDetails.Color);
-                                currentRow.Cells[posMonth].Style.BackColor = cellColor;
-                                currentRow.Cells[posMonth].Style.ForeColor = cellColor;
-                                currentRow.Cells[posMonth].Style.SelectionBackColor = cellColor;
-                                currentRow.Cells[posMonth].Style.SelectionForeColor = cellColor;
-                                currentRow.Cells[posMonth].Value = corpDetails.Name;
+
+                                for (int posMonth = startmonth; posMonth <= endMonth; ++posMonth)
+                                {
+                                    Corp corpDetails = listCorpItems.Find(c => c.Name == obj.Corp);
+                                    Color cellColor = Color.FromName(corpDetails.Color);
+                                    currentRow.Cells[posMonth].Style.BackColor = cellColor;
+                                    currentRow.Cells[posMonth].Style.ForeColor = cellColor;
+                                    currentRow.Cells[posMonth].Style.SelectionBackColor = cellColor;
+                                    currentRow.Cells[posMonth].Style.SelectionForeColor = cellColor;
+                                    currentRow.Cells[posMonth].Value = corpDetails.Name;
+                                }
+                            }
+                            else
+                            {
+                                if (startYear == int.Parse(comboYear.SelectedItem.ToString()))
+                                {
+                                    for (int posMonth = startmonth; posMonth <= 12; ++posMonth)
+                                    {
+                                        Corp corpDetails = listCorpItems.Find(c => c.Name == obj.Corp);
+                                        Color cellColor = Color.FromName(corpDetails.Color);
+                                        currentRow.Cells[posMonth].Style.BackColor = cellColor;
+                                        currentRow.Cells[posMonth].Style.ForeColor = cellColor;
+                                        currentRow.Cells[posMonth].Style.SelectionBackColor = cellColor;
+                                        currentRow.Cells[posMonth].Style.SelectionForeColor = cellColor;
+                                        currentRow.Cells[posMonth].Value = corpDetails.Name;
+                                    }
+                                }
+                                else
+                                {
+                                    for (int posMonth = 1; posMonth <= endMonth; ++posMonth)
+                                    {
+                                        Corp corpDetails = listCorpItems.Find(c => c.Name == obj.Corp);
+                                        Color cellColor = Color.FromName(corpDetails.Color);
+                                        currentRow.Cells[posMonth].Style.BackColor = cellColor;
+                                        currentRow.Cells[posMonth].Style.ForeColor = cellColor;
+                                        currentRow.Cells[posMonth].Style.SelectionBackColor = cellColor;
+                                        currentRow.Cells[posMonth].Style.SelectionForeColor = cellColor;
+                                        currentRow.Cells[posMonth].Value = corpDetails.Name;
+                                    }
+                                }
+
                             }
                         }
 
@@ -736,7 +781,7 @@ namespace FarmPlanner
             {
                 if (comboFarmSection.SelectedItem != null)
                 {
-                    FarmSectionDetails farmViewSection = new FarmSectionDetails(comboFarmSection.SelectedItem.ToString());
+                    FarmSectionDetails farmViewSection = new FarmSectionDetails(comboFarmSection.SelectedItem.ToString(),comboYear.SelectedItem.ToString());
                     farmViewSection.ShowDialog();
 
                 }
@@ -839,7 +884,7 @@ namespace FarmPlanner
 
                 worksheet = workbook.Sheets["Sheet1"];
                 worksheet = workbook.ActiveSheet;
-                worksheet.Name = "FarmView - ALL";
+                worksheet.Name = "FarmView - ALL - YEAR - " + comboYear.SelectedItem.ToString();
                 worksheet.UsedRange.EntireRow.RowHeight = 30;
 
                 oRng = worksheet.get_Range("A1", "M1");
@@ -898,12 +943,12 @@ namespace FarmPlanner
                
                 foreach (Section section in FarmDAO.GetAllSectionFromFarmView())
                 {
-                    List<FarmView> listFarmViewOfSection = FarmDAO.GetFarmDetailsSection(section.SecName);
+                    List<FarmView> listFarmViewOfSection = FarmDAO.GetFarmDetailsSection(section.SecName,int.Parse(comboYear.SelectedItem.ToString()));
                     
                     var xlNewSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelSheets.Add(Type.Missing, workbook.Worksheets[sheet], Type.Missing, Type.Missing);
                     //worksheet = workbook.Sheets[];"Sheet"+sheet
                     worksheet = workbook.ActiveSheet;
-                    xlNewSheet.Name = "FarmView - " + section.SecName;
+                    xlNewSheet.Name = "FarmView - " + section.SecName +" - "+ comboYear.SelectedItem.ToString();
                     oRng = worksheet.get_Range("A1", "H1");
                     oRng.EntireColumn.ColumnWidth = 16;
                     xlNewSheet.UsedRange.EntireRow.RowHeight = 30;
@@ -1121,6 +1166,19 @@ namespace FarmPlanner
                     button3_Click(sender, new EventArgs());
                 }
             }            
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ClearSelectionCorps();
+            ClearFarmViewColor();
+            LoadFarmViewResult();
+         
         }
     }
 }
